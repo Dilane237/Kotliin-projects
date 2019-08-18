@@ -1,10 +1,14 @@
-
+fun sayHello(greetings:String, vararg itemToGreet:String){
+    itemToGreet.forEach { element ->
+        println("$greetings $element")
+    }
+}
 
 fun main(){
-    val interestingThings = arrayOf("Kotlin","Programming","Comic Books")
-    println(interestingThings.size)
+    val personToGreet = arrayOf("Dilane","Mesmer","Magloire","Tianou")
 
-    for(item in interestingThings){
-        println(item)
-    }
+
+        sayHello(itemToGreet = *personToGreet,greetings = "Hello")
+
+
 }
