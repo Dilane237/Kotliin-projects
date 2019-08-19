@@ -1,39 +1,26 @@
-
-
 fun main(){
 
-    val authLog = AuthLog("Bad Password")
+    //create Girl object
+    val girl = Girl()
+
+    //access displayAge through the girl object
+    girl.displayAge(23)
 
 }
 
-open class Log{
-    var data: String = ""
-    var numberOfTimes = 0
+open class Person() {
 
-    //define secondary constructor of class Log
-    constructor(_data: String){
-        data = _data
-    }
-
-    //secondary constructor with different parameters
-    constructor(_data: String, _numberOfTimes: Int){
-        data = _data
-        numberOfTimes = _numberOfTimes
-
-        //display values collected from the derived class
-        println("$data:  $numberOfTimes times")
+    //we use open because if not the displayAge function will be seen as final so can be overriden
+   open fun displayAge(age: Int){
+        println("my age is $age")
     }
 }
 
-class AuthLog: Log{
+class Girl: Person(){
 
-    //here we initialize the constructor because the primary constrcutor has not been initialized
-    constructor(_data: String): this(_data,10) //accessing _numberOfTimes using this
-
-    //here we call the superclass base constructor using super
-    constructor(_data: String,_numberOfTimes: Int): super(_data,_numberOfTimes){
-
+    //overrode because it is already in the superclass while he has a different implementation here
+   override fun displayAge(age: Int){
+        println("My age is ${age-5}")
     }
-
 }
 
