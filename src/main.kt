@@ -8,7 +8,7 @@ fun main(){
 
 }
 
-open class Person() {
+open class Person{
 
     //we use open because if not the displayAge function will be seen as final so can be overriden
    open fun displayAge(age: Int){
@@ -20,7 +20,10 @@ class Girl: Person(){
 
     //overrode because it is already in the superclass while he has a different implementation here
    override fun displayAge(age: Int){
-        println("My age is ${age-5}")
+
+        super.displayAge(age)
+
+        println("My fake age is ${age - 5}")
     }
 }
 
